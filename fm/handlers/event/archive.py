@@ -7,5 +7,6 @@
 #  See LICENSE for details
 # ----------------------------------------------------------------------
 
+
 def handler(event):
     event.mark_as_archived("Close event")
