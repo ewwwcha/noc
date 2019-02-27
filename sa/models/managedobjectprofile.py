@@ -255,6 +255,8 @@ class ManagedObjectProfile(NOCModel):
     enable_periodic_discovery_mac = models.BooleanField(default=False)
     # Collect metrics
     enable_periodic_discovery_metrics = models.BooleanField(default=False)
+    # Enable Alarms
+    enable_periodic_discovery_alarms = models.BooleanField(default=False)
     # Enable CPE status
     enable_periodic_discovery_cpestatus = models.BooleanField(default=False)
     # CPE status discovery settings

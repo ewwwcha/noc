@@ -2,7 +2,7 @@
 # ---------------------------------------------------------------------
 # Periodic Discovery Job
 # ---------------------------------------------------------------------
-# Copyright (C) 2007-2018 The NOC Project
+# Copyright (C) 2007-2019 The NOC Project
 # See LICENSE for details
 # ---------------------------------------------------------------------
 
@@ -20,6 +20,7 @@ from .interfacestatus import InterfaceStatusCheck
 from .mac import MACCheck
 from .metrics import MetricsCheck
 from .cpestatus import CPEStatusCheck
+from .alarms import AlarmsCheck
 
 
 class PeriodicDiscoveryJob(MODiscoveryJob):
@@ -56,6 +57,8 @@ class PeriodicDiscoveryJob(MODiscoveryJob):
             MACCheck(self).run()
         if self.object.object_profile.enable_periodic_discovery_metrics:
             MetricsCheck(self).run()
+        if self.object.object_profile.enable_periodic_discovery_alarms:
+            AlarmsCheck(self).run()
 
     def get_running_policy(self):
         return self.object.get_effective_periodic_discovery_running_policy()

@@ -2,7 +2,7 @@
 # ----------------------------------------------------------------------
 # discovery commands
 # ----------------------------------------------------------------------
-# Copyright (C) 2007-2017 The NOC Project
+# Copyright (C) 2007-2019 The NOC Project
 # See LICENSE for details
 # ----------------------------------------------------------------------
 
@@ -62,7 +62,9 @@ class Command(BaseCommand):
             "nri_service",
             "metrics",
         ],
-        "periodic": ["uptime", "interfacestatus", "mac", "metrics", "cpestatus"],
+        "periodic": [
+            "uptime", "interfacestatus", "mac", "metrics", "cpestatus", "alarms"
+        ]
     }
 
     def add_arguments(self, parser):

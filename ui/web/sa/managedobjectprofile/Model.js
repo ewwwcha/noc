@@ -427,6 +427,11 @@ Ext.define("NOC.sa.managedobjectprofile.Model", {
             defaultValue: false
         },
         {
+            name: "enable_periodic_discovery_alarms",
+            type: "boolean",
+            defaultValue: false
+        },
+        {
             name: "enable_periodic_discovery_cpestatus",
             type: "boolean",
             defaultValue: false

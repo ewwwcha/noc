@@ -172,16 +172,6 @@ Ext.define("NOC.sa.managedobjectprofile.Application", {
                     width: 60,
                     align: "right",
                     sortable: false
-                },
-                {
-                    text: __("Description"),
-                    dataIndex: "description",
-                    width: 300,
-                    sortable: false,
-                    renderer: function(value, meta) {
-                        meta.tdAttr = 'data-qtip="' + value + '"';
-                        return value
-                    }
                 }
             ],
             fields: [
@@ -1635,6 +1625,11 @@ Ext.define("NOC.sa.managedobjectprofile.Application", {
                                             name: "enable_periodic_discovery_mac",
                                             xtype: "checkboxfield",
                                             boxLabel: __("MAC")
+                                        },
+                                        {
+                                            name: "enable_periodic_discovery_alarms",
+                                            xtype: "checkboxfield",
+                                            boxLabel: __("Alarms")
                                         },
                                         {
                                             name: "enable_periodic_discovery_metrics",
