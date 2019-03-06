@@ -61,10 +61,9 @@ class Command(BaseCommand):
             "nri_portmap",
             "nri_service",
             "metrics",
+            "alarms",
         ],
-        "periodic": [
-            "uptime", "interfacestatus", "mac", "metrics", "cpestatus", "alarms"
-        ]
+        "periodic": ["uptime", "interfacestatus", "mac", "metrics", "cpestatus", "alarms"],
     }
 
     def add_arguments(self, parser):

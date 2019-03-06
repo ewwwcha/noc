@@ -841,6 +841,11 @@ Ext.define("NOC.sa.managedobjectprofile.Application", {
                                             colspan: 3
                                         },
                                         {
+                                            name: "enable_box_discovery_alarms",
+                                            xtype: "checkboxfield",
+                                            boxLabel: __("Alarms")
+                                        },
+                                        {
                                             name: "enable_box_discovery_metrics",
                                             xtype: "checkboxfield",
                                             boxLabel: __("Metrics"),

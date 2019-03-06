@@ -46,6 +46,7 @@ from .prefix import PrefixCheck
 from .address import AddressCheck
 from .segmentation import SegmentationCheck
 from ..periodic.cpestatus import CPEStatusCheck
+from ..periodic.alarms import AlarmsCheck
 from noc.services.discovery.jobs.periodic.mac import MACCheck
 from noc.services.discovery.jobs.periodic.metrics import MetricsCheck
 from noc.core.span import Span
@@ -128,6 +129,8 @@ class BoxDiscoveryJob(MODiscoveryJob):
             CPECheck(self).run()
         if self.object.object_profile.enable_box_discovery_cpestatus:
             CPEStatusCheck(self).run()
+        if self.object.object_profile.enable_box_discovery_alarms:
+            AlarmsCheck(self).run()
         if self.object.object_profile.enable_box_discovery_mac:
             MACCheck(self).run()
         if VPNCheck.is_enabled_for_object(self.object):

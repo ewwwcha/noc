@@ -16,6 +16,11 @@ class Migration:
             "enable_periodic_discovery_alarms",
             models.BooleanField(default=False)
         )
-
+    def forwards(self):
+        db.add_column(
+            "sa_managedobjectprofile",
+            "enable_box_discovery_alarms",
+            models.BooleanField(default=False)
+        )
     def backwards(self):
         pass

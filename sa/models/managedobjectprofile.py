@@ -227,6 +227,8 @@ class ManagedObjectProfile(NOCModel):
     enable_box_discovery_metrics = models.BooleanField(default=False)
     # Enable Housekeeping
     enable_box_discovery_hk = models.BooleanField(default=False)
+    # Enable Alarms
+    enable_box_discovery_alarms = models.BooleanField(default=False)
     # Enable CPE status
     enable_box_discovery_cpestatus = models.BooleanField(default=False)
     # Enable Box CPE status policy
