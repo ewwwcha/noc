@@ -81,7 +81,7 @@ class AlarmsCheck(DiscoveryCheck):
 
     @cachetools.cachedmethod(operator.attrgetter("_cpe_cache"), lock=lambda _: cpe_lock)
     def find_cpe(self, id, co_id=None):
-        mo = ManagedObject.objects.filter(local_cpe_id=id, controller=co_id)[:1]
+        mo = ManagedObject.objects.filter(global_cpe_id=id, controller=co_id)[:1]
         if mo:
             return mo[0]
         return None
