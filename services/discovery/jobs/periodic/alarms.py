@@ -31,15 +31,10 @@ class AlarmsCheck(DiscoveryCheck):
     _cpe_cache = cachetools.TTLCache(maxsize=50, ttl=60)
 
     def handler(self):
-        mos = []
         self.logger.info("Checking Alarm CPEs")
+        mos_id = [mos.id for mos in ManagedObject.objects.filter(controller=self.object)]
+        mos_id.append(self.object)
         result = self.object.scripts.get_alarms()  # result get_alarms
-        for r in result:
-            if "object_id" in r:
-                mos += [self.find_cpe(r["object_id"], self.object.id)]
-            else:
-                mos += [self.object]
-        mos_id = list(set(mo.id for mo in mos if mo))
         # Object Events
         object_events = {str(cpe["alarm_id"]): cpe for cpe in result}
         # System Events
