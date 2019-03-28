@@ -56,9 +56,9 @@ class AlarmsCheck(DiscoveryCheck):
                 if "object_id" in object_events[new_event]:
                     managed_object = self.find_cpe(object_events[new_event]["object_id"], self.object.id)
                     if not managed_object:
-                        managed_object = self.object
                         self.logger.warning("No object %s for alarm: \n%s" % (object_events[new_event]["object_id"],
                                                                               object_events[new_event]))
+                        continue
                 else:
                     managed_object = self.object
                 raw_vars = object_events[new_event]
