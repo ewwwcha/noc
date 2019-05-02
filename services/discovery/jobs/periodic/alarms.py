@@ -69,6 +69,7 @@ class AlarmsCheck(DiscoveryCheck):
             for close_event in close_objects_events:
                 event = system_events[close_event]
                 raw_vars = event.raw_vars
+                raw_vars["alarm_time"] = datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S')
                 raw_vars["status"] = "Close"
                 self.raise_event(self.logger, event.managed_object.id, event.managed_object.pool.name, raw_vars)
                 event.mark_as_archived("Close event")
