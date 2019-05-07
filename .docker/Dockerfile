@@ -13,7 +13,7 @@ COPY . /opt/noc
 
 RUN apk add --update --no-cache \
     ca-certificates \
-    libpq libssh2 \
+    libpq \
     py-cffi \
     py-numpy \
     py-pip \
@@ -29,11 +29,11 @@ RUN apk add --update --no-cache \
         libffi-dev \
         libmemcached-dev \
         libressl-dev \
-        libssh2-dev \
         musl-dev \
         postgresql-dev \
         python-dev \
         zlib-dev \
+        cmake \
     && pip install --no-cache --trusted-host cdn.getnoc.com --find-links https://cdn.getnoc.com/npkg/ --upgrade -r /opt/noc/requirements/docker.txt \
     && python ./scripts/deploy/install-packages requirements/web.json \
     && python ./scripts/deploy/install-packages requirements/card.json \

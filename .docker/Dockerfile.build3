@@ -14,7 +14,7 @@ COPY requirements/test.txt /opt/noc/requirements/test.txt
 
 RUN apk add --update --no-cache \
     ca-certificates \
-    libpq libssh2 \
+    libpq \
     py3-cffi \
     py3-numpy \
     py3-pip \
@@ -30,7 +30,8 @@ RUN apk add --no-cache --virtual .build-deps \
     musl-dev \
     postgresql-dev \
     python3-dev \
-    zlib-dev
+    zlib-dev \
+    cmake
 RUN pip3 install --no-cache --upgrade -r /opt/noc/requirements/docker3.txt \
     && pip3 install --no-cache --upgrade -r /opt/noc/requirements/test.txt
 
