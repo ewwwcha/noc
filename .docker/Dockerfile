@@ -22,6 +22,7 @@ RUN apk add --update --no-cache \
     libmemcached \
     curl \
    && apk add --no-cache --virtual .build-deps \
+        build-base \
         cyrus-sasl-dev \
         cython \
         cython-dev \
