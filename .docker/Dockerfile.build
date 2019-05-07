@@ -30,7 +30,6 @@ RUN apk add --update --no-cache \
         libffi-dev \
         libmemcached-dev \
         libressl-dev \
-        libssh2-dev \
         musl-dev \
         postgresql-dev \
         python-dev \
