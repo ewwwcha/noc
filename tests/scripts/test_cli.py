@@ -94,7 +94,7 @@ def test_cli(proto, host, port, user, password, args, xcls):
     # Run script
     if xcls:
         with pytest.raises(xcls):
-            result = scr.run()
+            scr.run()
         return
     else:
         result = scr.run()
