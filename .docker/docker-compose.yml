@@ -164,3 +164,16 @@ services:
 
   redis:
     image: redis:5-alpine
+
+  sshd:
+    image: "registry.getnoc.com/infrastructure/tests/testsshd:master"
+    command: /usr/sbin/sshd -D -e -4
+
+  telnetd:
+    image: "registry.getnoc.com/infrastructure/tests/testtelnetd:master"
+    command: /usr/sbin/telnetd -F
+
+  snmpd:
+    image: "registry.getnoc.com/infrastructure/tests/testsnmpd:master"
+    command: "/usr/sbin/snmpd -f -Lo: -d -a udp:161"
+
