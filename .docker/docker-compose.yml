@@ -176,4 +176,3 @@ services:
   snmpd:
     image: "registry.getnoc.com/infrastructure/tests/testsnmpd:master"
     command: "/usr/sbin/snmpd -f -Lo: -d -a udp:161"
-

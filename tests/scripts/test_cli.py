@@ -17,6 +17,7 @@ from noc.sa.interfaces.igetdict import IGetDict
 
 
 SSHD_HOST = "sshd"
+TELNETD_HOST = "telnetd"
 TEST_USER = "test"
 TEST_PW = "pw1234567890"
 
@@ -37,11 +38,11 @@ class GetDiagScript(BaseScript):
 
     def execute_cli(self, **kwargs):
         r = {
-            "motd": self.motd,
+            "motd": self.motd.strip(),
             "args": self.args
         }
         # cat /etc/motd
-        r["cat-motd"] = self.cli("cat /etc/motd")
+        r["cat-motd"] = self.cli("cat /etc/motd").strip()
         # pager
         self.cli("more /etc/services")
         # Nested scripts
@@ -59,7 +60,17 @@ class GetDiagScript(BaseScript):
     # Invalid user (ssh)
     ("ssh", SSHD_HOST, 22, TEST_USER + "X", TEST_PW, {}, CLIAuthFailed),
     # Invalid password (ssh)
-    ("ssh", SSHD_HOST, 22, TEST_USER, TEST_PW + "X", {}, CLIAuthFailed)
+    ("ssh", SSHD_HOST, 22, TEST_USER, TEST_PW + "X", {}, CLIAuthFailed),
+    # Plain call (telnet)
+    ("telnet", TELNETD_HOST, 23, TEST_USER, TEST_PW, {}, None),
+    # Call with args (telnet)
+    ("telnet", TELNETD_HOST, 23, TEST_USER, TEST_PW, {"x": 1, "y": 2}, None),
+    # Connection refused
+    ("telnet", TELNETD_HOST, 1023, TEST_USER, TEST_PW, {}, CLIConnectionRefused),
+    # Invalid user (telnet)
+    ("telnet", TELNETD_HOST, 23, TEST_USER + "X", TEST_PW, {}, CLIAuthFailed),
+    # Invalid password (telnet)
+    ("telnet", TELNETD_HOST, 23, TEST_USER, TEST_PW + "X", {}, CLIAuthFailed),
 ])
 def test_cli(proto, host, port, user, password, args, xcls):
     try:
