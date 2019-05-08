@@ -180,12 +180,6 @@ Test migrate:
   script:
     # see docker/docker-compose.yml for complete list of migrations
     - >
-     docker
-     login
-     -u gitlab-ci-token
-     -p ${CI_BUILD_TOKEN}
-     ${CI_REGISTRY}
-    - >
      docker-compose
      -f .docker/docker-compose.yml
      -p "${DOCKER_COMPOSE_PROJECT}-migrate"
@@ -218,6 +212,12 @@ Test code:
   before_script:
     - DOCKER_COMPOSE_PROJECT=${CI_COMMIT_REF_SLUG}-${CI_JOB_ID}
   script:
+    - >
+     docker
+     login
+     -u gitlab-ci-token
+     -p ${CI_BUILD_TOKEN}
+     ${CI_REGISTRY}
     - >
       docker-compose
       -f .docker/docker-compose.yml
