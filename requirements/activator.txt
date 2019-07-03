@@ -1,2 +1,1 @@
-ssh2-python==0.17.0
-
+-e git+https://github.com/dvolodin7/ssh2-python.git@b93f6472b03d115bd2b1a5c77ac9b1b9da518ed6#egg=ssh2-python
