@@ -22,6 +22,7 @@ RUN apk add --update --no-cache \
     tzdata \
     curl \
    && apk add --no-cache --virtual .build-deps \
+        git \
         build-base \
         cyrus-sasl-dev \
         cython \

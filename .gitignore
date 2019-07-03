@@ -16,7 +16,6 @@ static/doc/*
 contrib/lib/*
 contrib/bin/*
 contrib/share/*
-.*
 !/.docker/*
 !/.gitignore
 !/.dockerignore
@@ -25,6 +24,7 @@ contrib/share/*
 !/.pylintrc
 !/.coveragerc
 !/.style.yapf
+.*
 ext_*
 etc/requirements/local.txt
 static/pkg/
