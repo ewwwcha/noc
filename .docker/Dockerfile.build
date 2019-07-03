@@ -36,8 +36,8 @@ RUN apk add --update --no-cache \
         python-dev \
         zlib-dev \
         cmake
-RUN pip install --no-cache --trusted-host cdn.getnoc.com --find-links https://cdn.getnoc.com/npkg/ --upgrade -r /opt/noc/requirements/docker.txt \
-    && pip install --no-cache --trusted-host cdn.getnoc.com --find-links https://cdn.getnoc.com/npkg/ --upgrade -r /opt/noc/requirements/test.txt
+RUN pip install --src=/tmp/src --no-cache --trusted-host cdn.getnoc.com --find-links https://cdn.getnoc.com/npkg/ --upgrade -r /opt/noc/requirements/docker.txt \
+    && pip install --src=/tmp/src --no-cache --trusted-host cdn.getnoc.com --find-links https://cdn.getnoc.com/npkg/ --upgrade -r /opt/noc/requirements/test.txt
 
 COPY . /opt/noc
 RUN find /opt/noc/ -type f -name "*.py" -print0 | xargs -0 python -m py_compile \
