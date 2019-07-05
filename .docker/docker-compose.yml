@@ -175,6 +175,10 @@ services:
     image: "registry.getnoc.com/infrastructure/tests/testsshd:master"
     command: /usr/sbin/sshd -D -e -4
 
+  dropbear:
+    image: "registry.getnoc.com/infrastructure/tests/testdropbear:master"
+    command: /usr/sbin/dropbear -F -E
+
   telnetd:
     image: "registry.getnoc.com/infrastructure/tests/testtelnetd:master"
     command: /usr/sbin/telnetd -F
