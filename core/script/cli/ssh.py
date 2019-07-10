@@ -155,7 +155,7 @@ class SSHIOStream(IOStream):
         try:
             self.session.userauth_publickey_frommemory(user, priv_key, "", pub_key)
             return True
-        except SSH2Error as e:
+        except SSH2Error:
             msg = self.session.last_error()
             self.logger.debug("Failed: %s", msg)
             return False
