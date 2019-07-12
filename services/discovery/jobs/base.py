@@ -21,6 +21,8 @@ import cachetools
 import six
 from six import StringIO
 from pymongo import UpdateOne
+from builtins import str
+from builtins import object
 
 # NOC modules
 from noc.core.scheduler.periodicjob import PeriodicJob
