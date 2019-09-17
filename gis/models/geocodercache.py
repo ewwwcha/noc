@@ -30,6 +30,7 @@ class GeocoderCache(Document):
     meta = {
         "collection": "noc.geocodercache",
         "indexes": [{"fields": ["expires"], "expireAfterSeconds": 0}],
+        "allow_inheritance": True
     }
 
     # query hash
